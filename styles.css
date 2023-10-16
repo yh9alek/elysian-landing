@@ -24,7 +24,9 @@
 }
 
 :root {
-    
+    --primary: #6525db;
+    --text-color: #222;
+    --box-shadow: 0 .1rem 2rem rgba(0, 0, 0, 0.25);
 }
 
 html {
@@ -32,4 +34,151 @@ html {
     overflow-x: hidden;
     scroll-padding-top: 5.5rem;
     scroll-behavior: smooth;
+}
+
+header {
+    padding: 1rem 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    z-index: 2;
+}
+
+header .logo-container {
+    width: max-content;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+header .logo-container .img-container {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header .logo-container p,
+header .logo-container i.fa-bars.menu {
+    display: block;
+    font-size: 1.7rem;
+}
+
+header .logo-container i.fa-bars.menu {
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    border-radius: .3rem;
+    border: 1px solid gray;
+    display: none;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.7rem;
+    font-weight: lighter;
+}
+
+header .navbar a {
+    color: var(--text-color);
+    display: block;
+    text-align: center;
+    width: 8rem;
+    padding: .5rem;
+    border-bottom: .0rem solid var(--primary);
+}
+
+header .navbar a.active {
+    border-bottom: .2rem solid var(--primary);
+}
+
+header .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+header .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .btn-container a {
+    display: block;
+    padding: .5rem;
+    font-size: 1.7rem;
+    width: 10rem;
+    border-radius: .3rem;
+    text-align: center;
+    background-image: linear-gradient(45deg, var(--primary), #4682dd);
+    color: #fff;
+}
+
+@media screen and (max-width: 942px) {
+    html {
+        font-size: 55%;
+    }
+
+    header .logo-container img {
+        width: 90%;
+        height: 90%;
+    }
+
+    header .logo-container i.fa-bars.menu {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        display: block;
+        top: 67.594px;
+        left: 0;
+        right: 0;
+        border-top: .15rem solid gray;
+        box-shadow: var(--box-shadow);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 110%, 0% 110%);
+    }
+
+    header .navbar a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 1.3rem;
+        padding-left: 5%;
+        border-bottom: none;
+    }
+
+    header .navbar a.active {
+        background-color: #6525db;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    header .logo-container p {
+        display: none;
+    }
 }
